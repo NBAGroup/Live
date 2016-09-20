@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@mipmap/home_header_bg"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:text="我的主播们"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:drawableRight="@mipmap/icon_to_all_commentators"
+                android:gravity="center"
+                android:text="更多" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:paddingTop="10dp"
+               android:paddingLeft="10dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="120dp">
+             <FrameLayout
+                 android:layout_width="60dp"
+                 android:layout_height="60dp">
+
+                 <ImageView
+                     android:id="@+id/home_header_image1"
+                     android:src="@mipmap/icon_lol"
+                     android:layout_width="60dp"
+                     android:layout_height="60dp" />
+                 <ImageView
+                     android:src="@mipmap/anchor_live"
+                     android:layout_gravity="bottom|center"
+                     android:layout_width="20dp"
+                     android:layout_height="10dp" />
+             </FrameLayout>
+
+                <TextView
+                    android:gravity="center"
+                    android:text="哈哈"
+                    android:id="@+id/home_header_name1"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:gravity="center"
+                    android:text="哈哈"
+                    android:id="@+id/home_header_text1"
+
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:paddingTop="10dp"
+                android:paddingLeft="10dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="120dp">
+                <FrameLayout
+                    android:layout_width="60dp"
+                    android:layout_height="60dp">
+
+                    <ImageView
+                        android:id="@+id/home_header_image2"
+                        android:src="@mipmap/icon_lol"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp" />
+                    <ImageView
+                        android:src="@mipmap/anchor_live"
+                        android:layout_gravity="bottom|center"
+                        android:layout_width="20dp"
+                        android:layout_height="10dp" />
+                </FrameLayout>
+
+                <TextView
+                    android:gravity="center"
+                    android:text="哈哈"
+                    android:id="@+id/home_header_name2"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:gravity="center"
+                    android:text="哈哈"
+                    android:id="@+id/home_header_text2"
+
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:paddingTop="10dp"
+                android:paddingLeft="10dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="120dp">
+                <FrameLayout
+                    android:layout_width="60dp"
+                    android:layout_height="60dp">
+
+                    <ImageView
+                        android:id="@+id/home_header_image3"
+                        android:src="@mipmap/icon_lol"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp" />
+                    <ImageView
+                        android:src="@mipmap/anchor_rest"
+                        android:layout_gravity="bottom|center"
+                        android:layout_width="20dp"
+                        android:layout_height="10dp" />
+                </FrameLayout>
+
+                <TextView
+                    android:gravity="center"
+                    android:text="哈哈"
+                    android:id="@+id/home_header_name3"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:gravity="center"
+                    android:text="哈哈"
+                    android:id="@+id/home_header_text3"
+
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:paddingTop="10dp"
+                android:paddingLeft="10dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="120dp">
+                <FrameLayout
+                    android:layout_width="60dp"
+                    android:layout_height="60dp">
+
+                    <ImageView
+                        android:id="@+id/home_header_image4"
+                        android:src="@mipmap/icon_lol"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp" />
+                    <ImageView
+                        android:src="@mipmap/anchor_rest"
+                        android:layout_gravity="bottom|center"
+                        android:layout_width="20dp"
+                        android:layout_height="10dp" />
+                </FrameLayout>
+
+                <TextView
+                    android:gravity="center"
+                    android:text="哈哈"
+                    android:id="@+id/home_header_name4"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:gravity="center"
+                    android:text="哈哈"
+                    android:id="@+id/home_header_text4"
+
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/recommend_tv_columnName"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:drawableLeft="@mipmap/title_left"
+            android:text="  最火直播"
+            android:textSize="16sp" />
+
+
+</LinearLayout>

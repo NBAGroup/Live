@@ -1,45 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="14dp"
-        android:background="#e1e9e7"/>
-
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:orientation="horizontal"
-        android:paddingRight="10dp"
-        android:paddingTop="10dp">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/recommend_tv_columnName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableLeft="@mipmap/title_left"
-            android:text="  最火直播"
-            android:textSize="12sp"/>
+        <include layout="@layout/header_item"/>
+
+        <com.yp.paparazzilive.view.HomePagerGridView
+            android:id="@+id/homepager_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:horizontalSpacing="10dp"
+            android:numColumns="2"
+            android:verticalSpacing="10dp">
+
+        </com.yp.paparazzilive.view.HomePagerGridView>
 
     </LinearLayout>
 
 
-    <GridView
-        android:id="@+id/homepager_gridview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:horizontalSpacing="10dp"
-        android:numColumns="2"
-        android:verticalSpacing="10dp">
-
-    </GridView>
-
-</LinearLayout>
+</ScrollView>

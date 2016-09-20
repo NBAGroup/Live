@@ -1,14 +1,9 @@
 package com.yp.paparazzilive.model.HomePagerModel;
 
-import com.yp.paparazzilive.http.JsonParser;
-
-import org.xutils.http.annotation.HttpResponse;
-
 /**
  * Created by hedianbo on 2016/9/20.
  */
 
-@HttpResponse(parser = JsonParser.class)
 public class BigLive {
 
     private LiveList rec_zhubo;
