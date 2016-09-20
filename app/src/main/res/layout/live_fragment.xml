@@ -2,39 +2,50 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F3F2F0"
+    android:scrollbars="none">
 
     <LinearLayout
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <View
-            android:background="#FE7053"
-            android:layout_width="3dp"
-            android:layout_height="15dp"/>
-
-        <TextView
-            android:text="游戏名称"
-            android:layout_marginLeft="5dp"
-            android:id="@+id/live_fragment_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:background="#F3F2F0"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <GridView
-            android:id="@+id/live_fragment_grideview"
-            android:numColumns="2"
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content">
+
+            <View
+                android:background="#FE7053"
+                android:layout_gravity="center"
+                android:layout_width="3dp"
+                android:layout_height="15dp"/>
+
+            <TextView
+                android:text="游戏名称"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/live_fragment_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <GridView
+                android:horizontalSpacing="10dp"
+                android:layout_margin="5dp"
+                android:id="@+id/live_fragment_grideview"
+                android:numColumns="2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 

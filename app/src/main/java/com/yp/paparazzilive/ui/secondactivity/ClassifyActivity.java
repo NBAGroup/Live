@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -15,11 +17,12 @@ import com.yp.paparazzilive.ui.fragments.clasify.VideoFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClassifyActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener {
+public class ClassifyActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener, View.OnClickListener {
 
     private RadioGroup mController;
     private ViewPager mViewPager;
     private ClassifyActivityAdapter adapter;
+    private ImageView mBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,8 @@ public class ClassifyActivity extends AppCompatActivity implements RadioGroup.On
     private void initView() {
         mController = (RadioGroup) findViewById(R.id.classify_activity_controller);
         mController.setOnCheckedChangeListener(this);
+        mBack = (ImageView) findViewById(R.id.classify_activity_image_back);
+        mBack.setOnClickListener(this);
         mViewPager = (ViewPager) findViewById(R.id.classify_activity_viewpager);
         List<Fragment> data=new ArrayList<>();
         data.add(new LiveFragment());
@@ -69,6 +74,17 @@ public class ClassifyActivity extends AppCompatActivity implements RadioGroup.On
 
     @Override
     public void onPageScrollStateChanged(int state) {
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()) {
+            case R.id.classify_activity_image_back:
+                finish();
+                break;
+        }
 
     }
 }
