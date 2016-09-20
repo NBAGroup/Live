@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.widget.RadioGroup;
 
 import com.yp.paparazzilive.R;
-import com.yp.paparazzilive.ui.fragments.ClassifyFragmetn;
+import com.yp.paparazzilive.ui.fragments.ClassifyFragment;
 import com.yp.paparazzilive.ui.fragments.HeaderListFragmetn;
 import com.yp.paparazzilive.ui.fragments.HomePagerFragmetn;
 import com.yp.paparazzilive.ui.fragments.MineFragmetn;
@@ -48,7 +48,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                 switchPages(HomePagerFragmetn.TAG,HomePagerFragmetn.class);
                 break;
             case R.id.controller_classify:
-                switchPages(ClassifyFragmetn.TAG,ClassifyFragmetn.class);
+                switchPages(ClassifyFragment.TAG,ClassifyFragment.class);
                 break;
             case R.id.controller_headerlist:
                 switchPages(HeaderListFragmetn.TAG,HeaderListFragmetn.class);
