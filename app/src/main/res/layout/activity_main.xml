@@ -15,7 +15,7 @@
         android:id="@+id/paparazziLive_main_controller"
         android:layout_gravity="bottom"
         android:orientation="horizontal"
-        android:layout_marginTop="5dp"
+        android:paddingTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="45dp">
         
