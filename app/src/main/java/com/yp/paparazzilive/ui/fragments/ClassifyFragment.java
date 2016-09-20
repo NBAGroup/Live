@@ -53,6 +53,7 @@ public class ClassifyFragment extends BaseFragment implements View.OnClickListen
         GridLayoutManager layout = new GridLayoutManager(getActivity(),3);
         mRecyclerView.setLayoutManager(layout);
         adapter = new ClassifyFragmentAdapter(getActivity(),null);
+        adapter.setListener(this);
         mRecyclerView.setAdapter(adapter);
 
         mSearch = ((ImageView) layout.findViewByPosition(R.id.fragment_classify_image_search));
