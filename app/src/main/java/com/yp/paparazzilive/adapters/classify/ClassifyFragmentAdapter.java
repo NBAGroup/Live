@@ -51,6 +51,10 @@ public class ClassifyFragmentAdapter extends RecyclerView.Adapter<ClassifyFragme
         }
     }
 
+    public Column getItem(int position){
+        return data.get(position);
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
