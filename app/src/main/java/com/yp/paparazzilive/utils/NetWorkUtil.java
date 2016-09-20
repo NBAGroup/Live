@@ -19,10 +19,6 @@ public class NetWorkUtil {
 
             return true;
         }
-
         return false;
-
     }
-
-
 }
