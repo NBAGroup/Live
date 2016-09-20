@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.rock.teachlibrary.adapters.TeachBaseAdapter;
 import com.yp.paparazzilive.R;
+import com.yp.paparazzilive.model.BigModel;
 import com.yp.paparazzilive.model.HomePagerModel.Live1;
 
 
@@ -17,14 +18,14 @@ import java.util.List;
 /**
  * Created by hedianbo on 2016/9/20.
  */
-public class MyGridView extends TeachBaseAdapter<Live1> {
+public class MyGridView extends TeachBaseAdapter<BigModel.RecZhuboBean.DataListBean> {
 
-    public MyGridView(Context context, List<Live1> data, int layoutResId) {
+    public MyGridView(Context context, List<BigModel.RecZhuboBean.DataListBean> data, int layoutResId) {
         super(context, data, layoutResId);
     }
 
     @Override
-    protected void bindData(ViewHolder holder, Live1 item) {
+    protected void bindData(ViewHolder holder, BigModel.RecZhuboBean.DataListBean item) {
         TextView name = (TextView) holder.getView(R.id.live_item_name);
         TextView count = (TextView) holder.getView(R.id.live_item_count);
         TextView content = (TextView) holder.getView(R.id.live_item_content);
