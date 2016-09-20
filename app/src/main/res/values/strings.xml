@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">PaparazziLive</string>
+
+    <string name="homepager">首页</string>
+    <string name="classify">栏目分类</string>
+    <string name="headerlist">主播头条</string>
+    <string name="mine">我的</string>
+
+
+</resources>

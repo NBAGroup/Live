@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/paparazziLive_main_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="45dp"/>
+
+    <RadioGroup
+        android:id="@+id/paparazziLive_main_controller"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+        
+        <RadioButton
+            android:id="@+id/controller_homepager"
+            style="@style/controller_button_style"
+            android:checked="true"
+            android:text="@string/homepager"
+            android:drawableTop="@drawable/controller_homepager_picture"/>
+
+        <RadioButton
+            android:id="@+id/controller_classify"
+            style="@style/controller_button_style"
+            android:text="@string/classify"
+            android:drawableTop="@drawable/controller_classify_picture"/>
+
+        <RadioButton
+            android:id="@+id/controller_headerlist"
+            style="@style/controller_button_style"
+            android:text="@string/headerlist"
+            android:drawableTop="@drawable/controller_headerlist_picture"/>
+
+        <RadioButton
+            android:id="@+id/controller_mine"
+            style="@style/controller_button_style"
+            android:text="@string/mine"
+            android:drawableTop="@drawable/controller_mine_picture"/>
+
+    </RadioGroup>
+    
+    
+</FrameLayout>
