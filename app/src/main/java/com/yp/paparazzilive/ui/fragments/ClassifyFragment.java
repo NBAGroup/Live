@@ -1,5 +1,6 @@
 package com.yp.paparazzilive.ui.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
@@ -12,10 +13,13 @@ import android.widget.ImageView;
 
 import com.yp.paparazzilive.R;
 import com.yp.paparazzilive.adapters.classify.ClassifyFragmentAdapter;
+import com.yp.paparazzilive.event.GameName;
 import com.yp.paparazzilive.model.classify.Column;
 import com.yp.paparazzilive.model.classify.ColumnList;
+import com.yp.paparazzilive.ui.secondactivity.ClassifyActivity;
 import com.yp.paparazzilive.web.web;
 
+import org.greenrobot.eventbus.EventBus;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
@@ -50,13 +54,14 @@ public class ClassifyFragment extends BaseFragment implements View.OnClickListen
 
     private void initView() {
         mRecyclerView = ((RecyclerView) layout.findViewById(R.id.fragment_classify_recycler));
+        mSearch=((ImageView) layout.findViewById(R.id.fragment_classify_image_search));
+
         GridLayoutManager layout = new GridLayoutManager(getActivity(),3);
         mRecyclerView.setLayoutManager(layout);
         adapter = new ClassifyFragmentAdapter(getActivity(),null);
         adapter.setListener(this);
         mRecyclerView.setAdapter(adapter);
 
-        mSearch = ((ImageView) layout.findViewByPosition(R.id.fragment_classify_image_search));
         mSearch.setOnClickListener(this);
     }
 
@@ -101,5 +106,13 @@ public class ClassifyFragment extends BaseFragment implements View.OnClickListen
     @Override
     public void onItemClick(int position) {
         Log.e(TAG, "onItemClick: "+position );
+        Intent intent = new Intent(getActivity(), ClassifyActivity.class);
+        startActivity(intent);
+
+        GameName event=new GameName();
+
+        event.setName(adapter.getItem(position).getName());
+
+        EventBus.getDefault().postSticky(event);
     }
 }
