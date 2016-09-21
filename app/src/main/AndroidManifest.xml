@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-
     <application
         android:name=".paparazziLiveApp"
         android:allowBackup="true"
@@ -22,7 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.SplashActivity" />
-        <activity android:name=".ui.secondactivity.ClassifyActivity"></activity>
+        <activity android:name=".ui.secondactivity.ClassifyActivity" />
+        <activity android:name=".ui.secondactivity.MineActivity"></activity>
     </application>
 
 </manifest>

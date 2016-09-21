@@ -1,8 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="#ff00ff"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:src="@mipmap/mine_title_bg"
+                android:scaleType="fitXY"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:src="@mipmap/ic_header"
+                android:layout_width="80dp"
+                android:layout_height="80dp" />
+
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:layout_margin="20dp"
+                android:src="@mipmap/setting_entry"
+                android:layout_width="26dp"
+                android:layout_height="26dp" />
+
+            <TextView
+                android:text="马上登陆"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="30dp"
+                android:textColor="#FF6000"
+                android:background="@drawable/login_btn"
+                android:layout_width="90dp"
+                android:gravity="center"
+                android:layout_height="30dp" />
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <View
+        android:layout_marginTop="10dp"
+        android:background="#F1F2F2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+
+    <include layout="@layout/mine_layout"/>
+
+
 
 </LinearLayout>

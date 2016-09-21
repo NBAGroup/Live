@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#ededed"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:textSize="12sp"
+                android:text="类别筛选"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/icon_look_back"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <View
+                android:layout_marginTop="10dp"
+                android:background="#FE7053"
+                android:layout_width="2dp"
+                android:layout_height="15dp"/>
+
+            <TextView
+                android:textSize="12sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:text="我常看的栏目"
+                android:textColor="#FE7053"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <View
+            android:background="#dcdbdb"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <com.yp.paparazzilive.view.HomePagerGridView
+            android:numColumns="3"
+            android:id="@+id/allgame_pop_gridview_top"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+
+
+        <View
+            android:background="#dcdbdb"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"/>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <View
+                android:layout_marginTop="10dp"
+                android:background="#FE7053"
+                android:layout_width="2dp"
+                android:layout_height="15dp"/>
+
+            <TextView
+                android:textSize="12sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:text="全部栏目"
+                android:textColor="#FE7053"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <com.yp.paparazzilive.view.HomePagerGridView
+            android:id="@+id/allgame_pop_gridview_bottom"
+            android:numColumns="4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+</ScrollView>

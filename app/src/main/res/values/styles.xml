@@ -20,4 +20,10 @@
 
     </style>
 
+    <style name="pop_animation">
+
+        <item name="android:windowEnterAnimation">@anim/enter</item>
+
+    </style>
+
 </resources>

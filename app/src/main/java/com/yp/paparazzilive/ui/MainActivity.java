@@ -10,7 +10,7 @@ import com.yp.paparazzilive.R;
 import com.yp.paparazzilive.ui.fragments.ClassifyFragment;
 import com.yp.paparazzilive.ui.fragments.HeaderListFragmetn;
 import com.yp.paparazzilive.ui.fragments.HomePagerFragmetn;
-import com.yp.paparazzilive.ui.fragments.MineFragmetn;
+import com.yp.paparazzilive.ui.fragments.MineFragment;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -54,7 +54,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                 switchPages(HeaderListFragmetn.TAG,HeaderListFragmetn.class);
                 break;
             case R.id.controller_mine:
-                switchPages(MineFragmetn.TAG,MineFragmetn.class);
+                switchPages(MineFragment.TAG,MineFragment.class);
                 break;
         }
     }

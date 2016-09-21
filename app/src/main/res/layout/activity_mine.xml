@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.yp.paparazzilive.ui.secondactivity.MineActivity">
+
+    <RelativeLayout
+        android:background="#FE7053"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/mine_activity_image_back"
+            android:src="@mipmap/icon_back_gray"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <RadioGroup
+            android:id="@+id/mine_activity_controller"
+            android:orientation="horizontal"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/mine_activity_controller_left_live"
+                android:layout_gravity="center_vertical"
+                android:text="我的关注"
+                android:gravity="center"
+                android:background="@drawable/classify_activity_left_live"
+                android:textColor="@drawable/button_text_color"
+                android:button="@null"
+                android:checked="true"
+                android:padding="5dp"
+                android:textSize="16sp"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:id="@+id/mine_activity_controller_right_video"
+                android:button="@null"
+                android:background="@drawable/classify_activity_right_video"
+                android:layout_gravity="center_vertical"
+                android:text="主播排行"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textColor="@drawable/button_text_color"
+                android:textSize="16sp"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content" />
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/mine_activity_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

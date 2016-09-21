@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/mine_fragment_one"
+        android:layout_marginLeft="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/mine_fragment_image_one"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/icon_camera"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:layout_toRightOf="@+id/mine_fragment_image_one"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="主播时刻"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:background="#F1F2F2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <ImageView
+            android:src="@mipmap/icon_to_all_commentators"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mine_fragment_two"
+        android:layout_marginLeft="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/mine_fragment_image_two"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/icon_setting_follow"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:layout_toRightOf="@+id/mine_fragment_image_two"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="我的关注"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:background="#F1F2F2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <ImageView
+            android:src="@mipmap/icon_to_all_commentators"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mine_fragment_three"
+        android:layout_marginLeft="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/mine_fragment_image_three"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/icon_setting_ranking"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:layout_toRightOf="@+id/mine_fragment_image_three"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="主播排行"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:background="#F1F2F2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <ImageView
+            android:src="@mipmap/icon_to_all_commentators"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+    </RelativeLayout>
+
+<!---->
+
+
+    <RelativeLayout
+        android:id="@+id/mine_fragment_four"
+        android:layout_marginLeft="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/mine_fragment_image_four"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/icon_setting_platform_all"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:layout_toRightOf="@+id/mine_fragment_image_four"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="平台大全"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:background="#F1F2F2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <ImageView
+            android:src="@mipmap/icon_to_all_commentators"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mine_fragment_five"
+        android:layout_marginLeft="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/mine_fragment_image_five"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/icon_setting_offline"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:layout_toRightOf="@+id/mine_fragment_image_five"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="离线视频"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:background="#F1F2F2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <ImageView
+            android:id="@+id/mine_fragment_image_right_five"
+            android:src="@mipmap/icon_to_all_commentators"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:textSize="10sp"
+            android:text="暂无已下载完成的视频"
+            android:textColor="#c8caca"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="3dp"
+            android:layout_toLeftOf="@+id/mine_fragment_image_right_five"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mine_fragment_six"
+        android:layout_marginLeft="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/mine_fragment_image_six"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/icon_setting_fav"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:layout_toRightOf="@+id/mine_fragment_image_six"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="我的收藏"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:background="#F1F2F2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <ImageView
+            android:id="@+id/mine_fragment_image_right_six"
+            android:src="@mipmap/icon_to_all_commentators"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:textSize="10sp"
+            android:text="暂无"
+            android:textColor="#c8caca"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="3dp"
+            android:layout_toLeftOf="@+id/mine_fragment_image_right_six"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mine_fragment_seven"
+        android:layout_marginLeft="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/mine_fragment_image_seven"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/icon_setting_history"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:layout_toRightOf="@+id/mine_fragment_image_seven"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="观看记录"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:background="#F1F2F2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <ImageView
+            android:src="@mipmap/icon_to_all_commentators"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

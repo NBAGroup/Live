@@ -85,13 +85,13 @@ public class LiveFragment extends BaseFragment {
     }
 
     private void setupView() {
-        RequestParams requestParams=new RequestParams(web.CLASSIFY_LIVE+name);
+        RequestParams requestParams=new RequestParams(web.CLASSIFY_LIVE);
 
         x.http().get(requestParams, new Callback.CommonCallback<LiveContent>() {
 
             @Override
             public void onSuccess(LiveContent result) {
-                Log.e(TAG, "onSuccess: ");
+                Log.e(TAG, "onSuccess: "+result);
                 GameInfoList commentators = result.getCommentators();
                 Log.e(TAG, "onSuccess: "+commentators.getGameinfo().get(0).getTitle());
                 adapter.addRes(commentators.getGameinfo());

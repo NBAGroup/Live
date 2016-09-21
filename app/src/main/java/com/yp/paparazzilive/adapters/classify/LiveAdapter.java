@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.rock.teachlibrary.adapters.TeachBaseAdapter;
 import com.yp.paparazzilive.R;
 import com.yp.paparazzilive.model.classify.GameInfo;
 
@@ -71,7 +70,7 @@ public class LiveAdapter extends BaseAdapter {
         }
 
         holder.title.setText(getItem(position).getTitle());
-        holder.room.setText(getItem(position).getSourcename()+"·"+getItem(position).getCommentator());
+        holder.room.setText(getItem(position).getSourcename()+"·"+getItem(position).getRawcoverimage());
         x.image().bind(holder.image,getItem(position).getRawcoverimage());
 
         return convertView;
