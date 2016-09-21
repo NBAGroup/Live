@@ -15,10 +15,13 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.yp.paparazzilive.R;
+import com.yp.paparazzilive.adapters.MovieBigAdapter;
 import com.yp.paparazzilive.adapters.MyGridView;
 import com.yp.paparazzilive.model.BigModel;
 import com.yp.paparazzilive.model.HomePagerModel.BigLive;
 import com.yp.paparazzilive.model.HomePagerModel.Live1;
+import com.yp.paparazzilive.model.HomePagerModel.MovieBig;
+import com.yp.paparazzilive.ui.secondactivity.PlayActivity;
 import com.yp.paparazzilive.view.HomePagerGridView;
 
 import org.xutils.common.Callback;
@@ -36,7 +39,6 @@ public class HomePagerFragmetn extends BaseFragment implements AdapterView.OnIte
     public static final String TAG=HomePagerFragmetn.class.getSimpleName();
     private HomePagerGridView mGridView;
     private MyGridView myGridViewadapter;
-    private List<Live1> data;
     private ImageView image1;
     private ImageView image2;
     private ImageView image3;
@@ -51,7 +53,9 @@ public class HomePagerFragmetn extends BaseFragment implements AdapterView.OnIte
     private TextView text2;
     private TextView text3;
     private TextView text4;
+    private MovieBigAdapter movieBigAdapter;
 
+    private List<MovieBig.DataBean> data;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -84,12 +88,13 @@ public class HomePagerFragmetn extends BaseFragment implements AdapterView.OnIte
         text4 = ((TextView) layout.findViewById(R.id.home_header_text4));
 
         mGridView = (HomePagerGridView) layout.findViewById(R.id.homepager_gridview);
-        myGridViewadapter = new MyGridView(getContext(),getData(), R.layout.homepagerlive_item);
-        mGridView.setAdapter(myGridViewadapter);
+
+        movieBigAdapter = new MovieBigAdapter(getContext(),null,R.layout.homepagerlive_item);
+        mGridView.setAdapter(movieBigAdapter);
         mGridView.setOnItemClickListener(this);
 
 
-        RequestParams params = new RequestParams("http://zhibo.sogou.com/getMyConcernAndRecData?appid=4bd846d2589853514566976c6767950c371cd016&type=json");
+        RequestParams params = new RequestParams("http://live.bilibili.com/mobile/rooms?_device=android&_hwid=02f07a17baea3af1&appkey=1d8b6e7d45233436&area_id=1&build=426003&mobi_app=android&page=2&platform=android&sort=hottest&sign=416260a389ba4a44f2da760adf401f56");
 
         x.http().get(params, new Callback.CommonCallback<String>() {
             @Override
@@ -97,11 +102,11 @@ public class HomePagerFragmetn extends BaseFragment implements AdapterView.OnIte
                 Log.e(TAG, "onSuccess: "+result );
                 Gson gson=new Gson();
                 Log.e(TAG, "onSuccessttt: " );
-                BigModel bigLive = gson.fromJson(result, BigModel.class);
+                MovieBig bigLive = gson.fromJson(result, MovieBig.class);
                 Log.e(TAG, "onSuccess: uuu" );
-                List<BigModel.RecZhuboBean.DataListBean> data_list = bigLive.getRec_zhubo().getData_list();
-                Log.e(TAG, "onSuccess: "+data_list.get(0).getName());
-                myGridViewadapter.updateRes(data_list);
+                data = bigLive.getData();
+                Log.e(TAG, "onSuccess: "+data.get(0).getTitle());
+                movieBigAdapter.updateRes(data);
             }
 
             @Override
@@ -138,6 +143,9 @@ public class HomePagerFragmetn extends BaseFragment implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Log.e(TAG, "onItemClick: "+position );
-
+        Intent intent = new Intent(getContext(), PlayActivity.class);
+        intent.putExtra("PLAYURL",data.get(position).getPlayurl());
+        intent.putExtra("NAME",data.get(position).getTitle());
+        startActivity(intent);
     }
 }

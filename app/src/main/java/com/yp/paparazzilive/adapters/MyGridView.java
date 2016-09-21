@@ -26,16 +26,16 @@ public class MyGridView extends TeachBaseAdapter<BigModel.RecZhuboBean.DataListB
 
     @Override
     protected void bindData(ViewHolder holder, BigModel.RecZhuboBean.DataListBean item) {
-        TextView name = (TextView) holder.getView(R.id.live_item_name);
-        TextView count = (TextView) holder.getView(R.id.live_item_count);
+//        TextView name = (TextView) holder.getView(R.id.live_item_name);
+//        TextView count = (TextView) holder.getView(R.id.live_item_count);
         TextView content = (TextView) holder.getView(R.id.live_item_content);
         TextView title = (TextView) holder.getView(R.id.live_item_title);
 
         ImageView imageView = (ImageView) holder.getView(R.id.live_item_image);
 
-        name.setText(item.getName());
+//        name.setText(item.getName());
         DecimalFormat decimalFormat = new DecimalFormat("#.#");
-        count.setText((decimalFormat.format(item.getViewers() / (double) 10000) + "万人"));
+//        count.setText((decimalFormat.format(item.getViewers() / (double) 10000) + "万人"));
         content.setText(item.getTitle());
         title.setText(item.getSourcename()+"."+item.getCommentator());
 

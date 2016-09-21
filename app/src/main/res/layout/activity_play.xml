@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.yp.paparazzilive.ui.secondactivity.PlayActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <io.vov.vitamio.widget.VideoView
+            android:id="@+id/paly_videoview"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/play_image_load"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@mipmap/video_loading" />
+
+        <CheckBox
+            android:button="@null"
+            android:visibility="gone"
+            android:id="@+id/play_image_fullscreen"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right|bottom"
+            android:layout_margin="10dp"
+            android:background="@drawable/play_image_fullscreen"
+            android:clickable="true" />
+
+        <CheckBox
+            android:visibility="gone"
+            android:id="@+id/play_cb_pause"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom"
+            android:layout_margin="10dp"
+            android:background="@drawable/play_cb_pause"
+            android:button="@null" />
+
+        <TextView
+            android:id="@+id/paly_time"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="50dp"
+            android:gravity="center"
+            android:text="时间" />
+
+        <!--返回键-->
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/play_detail_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/live_detail_back"
+            android:clickable="true"
+            />
+
+        <TextView
+            android:visibility="gone"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/paly_name"
+            android:text="播放的名字"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp" />
+        <ImageView
+            android:visibility="gone"
+            android:layout_margin="10dp"
+            android:layout_gravity="right"
+            android:id="@+id/play_image_more"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/play_ver_more"
+            android:clickable="true" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/play_linear_playinfo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/play_image_avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/ic_share_wechat_moments_pressed" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/play_tv_nick"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="bottom"
+                android:lines="1"
+                android:text="主播名"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/play_tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="介绍" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:src="@mipmap/guanzhu"
+                android:id="@+id/play_switch_remind"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center" />
+
+        </LinearLayout>
+    </LinearLayout>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/play_tab_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.design.widget.TabLayout>
+
+    <!-- 播放页面:聊天 排行 -->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/play_vp_viewer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5">
+
+    </android.support.v4.view.ViewPager>
+
+
+</LinearLayout>

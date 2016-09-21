@@ -33,4 +33,6 @@ dependencies {
     compile 'com.android.support:percent:23.4.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile project(':teachlibrary')
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile project(':initActivity')
 }

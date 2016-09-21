@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 小屏播放返回详情页按钮 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="false" android:drawable="@mipmap/live_detail_unpressed"/>
+    <item android:state_pressed="true" android:drawable="@mipmap/live_detail_pressed"/>
+
+</selector>
