@@ -12,8 +12,17 @@ import java.util.List;
 @HttpResponse(parser = JsonParser.class)
 public class GameTitleList {
 
-
     private List<GameTitle> all_game;
+
+    private List<GameTitle> recent_game;
+
+    public List<GameTitle> getRecent_game() {
+        return recent_game;
+    }
+
+    public void setRecent_game(List<GameTitle> recent_game) {
+        this.recent_game = recent_game;
+    }
 
     public List<GameTitle> getAll_game() {
         return all_game;

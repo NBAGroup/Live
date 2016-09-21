@@ -23,6 +23,7 @@
                 android:layout_height="wrap_content" />
 
             <ImageView
+                android:id="@+id/allgame_pop_gridview_back"
                 android:layout_marginRight="10dp"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
@@ -32,38 +33,120 @@
 
         </RelativeLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="40dp">
-
-            <View
-                android:layout_marginTop="10dp"
-                android:background="#FE7053"
-                android:layout_width="2dp"
-                android:layout_height="15dp"/>
-
-            <TextView
-                android:textSize="12sp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:text="我常看的栏目"
-                android:textColor="#FE7053"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
         <View
             android:background="#dcdbdb"
             android:layout_width="match_parent"
             android:layout_height="1dp"/>
 
-        <com.yp.paparazzilive.view.HomePagerGridView
-            android:numColumns="3"
-            android:id="@+id/allgame_pop_gridview_top"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"/>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="150dp"
+           android:orientation="vertical">
+
+           <LinearLayout
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="40dp">
+
+               <View
+                   android:layout_marginTop="10dp"
+                   android:background="#FE7053"
+                   android:layout_width="2dp"
+                   android:layout_height="15dp"/>
+
+               <TextView
+                   android:textSize="12sp"
+                   android:layout_marginLeft="5dp"
+                   android:layout_marginTop="10dp"
+                   android:text="我常看的栏目"
+                   android:textColor="#FE7053"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+
+           </LinearLayout>
+
+           <RelativeLayout
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="110dp">
+
+               <LinearLayout
+                   android:orientation="vertical"
+                   android:layout_width="wrap_content"
+                   android:layout_height="120dp">
+
+                   <ImageView
+                       android:id="@+id/allgame_pop_gridview_image_one"
+                       android:layout_marginTop="10dp"
+                       android:layout_marginLeft="30dp"
+                       android:src="@mipmap/icon_lol"
+                       android:layout_width="60dp"
+                       android:layout_height="60dp" />
+
+                   <TextView
+                       android:layout_gravity="center_horizontal"
+                       android:layout_marginTop="10dp"
+                       android:layout_marginLeft="15dp"
+                       android:text="英雄联盟"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content" />
+
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_centerHorizontal="true"
+                   android:orientation="vertical"
+                   android:layout_width="wrap_content"
+                   android:layout_height="120dp">
+
+                   <ImageView
+                       android:id="@+id/allgame_pop_gridview_image_two"
+                       android:layout_marginTop="10dp"
+                       android:layout_marginLeft="20dp"
+                       android:src="@mipmap/icon_lol"
+                       android:layout_width="60dp"
+                       android:layout_height="60dp" />
+
+                   <TextView
+                       android:layout_gravity="center_horizontal"
+                       android:layout_marginTop="10dp"
+                       android:layout_marginLeft="15dp"
+                       android:text="英雄联盟"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content" />
+
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_marginRight="20dp"
+                   android:layout_alignParentRight="true"
+                   android:orientation="vertical"
+                   android:layout_width="wrap_content"
+                   android:layout_height="120dp">
+
+                   <ImageView
+                       android:id="@+id/allgame_pop_gridview_image_three"
+                       android:layout_marginTop="10dp"
+                       android:layout_marginLeft="30dp"
+                       android:src="@mipmap/icon_lol"
+                       android:layout_width="60dp"
+                       android:layout_height="60dp" />
+
+                   <TextView
+                       android:layout_gravity="center_horizontal"
+                       android:layout_marginTop="10dp"
+                       android:layout_marginLeft="15dp"
+                       android:text="英雄联盟"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content" />
+
+               </LinearLayout>
+
+
+
+           </RelativeLayout>
+
+       </LinearLayout>
 
 
         <View
@@ -95,6 +178,8 @@
         </LinearLayout>
 
         <com.yp.paparazzilive.view.HomePagerGridView
+            android:horizontalSpacing="20dp"
+            android:verticalSpacing="20dp"
             android:id="@+id/allgame_pop_gridview_bottom"
             android:numColumns="4"
             android:layout_width="match_parent"

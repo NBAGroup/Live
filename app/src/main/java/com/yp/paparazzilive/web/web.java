@@ -15,4 +15,5 @@ public class web {
 
     public static final String GAME_LIVE="http://zhibo.sogou.com/livesearch?sysVer=4.2.2&system=android&appVer=3.2.1&resulttype=json&req_from=app&sp=videohome%3A0%3BpageNo%3A1%3Bgamename%3A%3Bonline%3A0%3B&query=%E8%8B%B1%E9%9B%84%E8%81%94%E7%9B%9F";
 
+
 }

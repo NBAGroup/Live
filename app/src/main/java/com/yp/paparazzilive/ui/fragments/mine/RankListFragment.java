@@ -12,11 +12,13 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 
 import com.yp.paparazzilive.R;
+import com.yp.paparazzilive.adapters.mine.AllGamePopAdapter;
 import com.yp.paparazzilive.adapters.mine.GameAdapter;
 import com.yp.paparazzilive.model.mine.GameTitle;
 import com.yp.paparazzilive.model.mine.GameTitleList;
@@ -42,6 +44,10 @@ public class RankListFragment extends BaseFragment implements View.OnClickListen
     private ImageView mAllGame;
 
     private PopupWindow popupWindow;
+    private ImageView mBack;
+    private GridView mTopGridView;
+    private GridView mBottomGridView;
+    private AllGamePopAdapter adapter;
 
     @Nullable
     @Override
@@ -132,9 +138,18 @@ public class RankListFragment extends BaseFragment implements View.OnClickListen
 
                 View allGamePop = LayoutInflater.from(getActivity()).inflate(R.layout.allgame_pop, null);
 
+                mBottomGridView = ((GridView) allGamePop.findViewById(R.id.allgame_pop_gridview_bottom));
+
+                mBack = ((ImageView) allGamePop.findViewById(R.id.allgame_pop_gridview_back));
+                mBack.setOnClickListener(this);
+
+                adapter = new AllGamePopAdapter(getActivity(),null);
+                mBottomGridView.setAdapter(adapter);
+
                 DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
                 float density = getResources().getDisplayMetrics().density;
                 float v1 = 50 * density + 0.5f;
+                Log.e(TAG, "onClick: "+v1 );
                 int widthPixels = displayMetrics.widthPixels;
                 int heightPixels = displayMetrics.heightPixels;
                 Log.d(TAG, "onClick: "+widthPixels);
@@ -142,7 +157,7 @@ public class RankListFragment extends BaseFragment implements View.OnClickListen
                 if (popupWindow==null) {
                     this.popupWindow=new PopupWindow(allGamePop);
                     popupWindow.setWidth(widthPixels);
-                    popupWindow.setHeight((int) (heightPixels-v1));
+                    popupWindow.setHeight((int) (heightPixels-135));
 //                    popupWindow.setAnimationStyle(R.style.pop_animation);
                 }
 
@@ -154,9 +169,45 @@ public class RankListFragment extends BaseFragment implements View.OnClickListen
                     Log.d(TAG, "onClick: show");
                 }
 
+                allGameView();
+
+                break;
+            case R.id.allgame_pop_gridview_back:
+                popupWindow.dismiss();
                 break;
 
 
         }
+    }
+
+    private void allGameView() {
+
+        RequestParams requestParams=new RequestParams(web.GAMETITLE);
+
+        x.http().get(requestParams, new Callback.CommonCallback<GameTitleList>() {
+            @Override
+            public void onSuccess(GameTitleList result) {
+                Log.e(TAG, "onSuccess: " );
+                List<GameTitle> all_game = result.getAll_game();
+                adapter.addRes(all_game);
+
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                Log.e(TAG, "onError: " );
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+                Log.e(TAG, "onCancelled: ");
+            }
+
+            @Override
+            public void onFinished() {
+                Log.e(TAG, "onFinished: " );
+            }
+        });
+
     }
 }
