@@ -1,11 +1,13 @@
 package com.yp.paparazzilive.adapters.mine;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.yp.paparazzilive.R;
@@ -21,16 +23,23 @@ import java.util.List;
  * Created by yp on 2016/9/21.
  *
  */
-public class LiveRankAdapter extends BaseAdapter {
+public class LiveRankAdapter extends BaseAdapter implements View.OnClickListener {
 
 
+    private static final String TAG = LiveRankAdapter.class.getSimpleName();
     private ImageOptions options;
 
     private LayoutInflater inflater;
 
     private List<LiveRank> data;
 
-    public LiveRankAdapter(Context context,List<LiveRank> data){
+    private onItemClickListener listener;
+
+    public void setListener(onItemClickListener listener) {
+        this.listener = listener;
+    }
+
+    public LiveRankAdapter(Context context, List<LiveRank> data){
 
         inflater=LayoutInflater.from(context);
         if (data!=null){
@@ -90,7 +99,27 @@ public class LiveRankAdapter extends BaseAdapter {
         holder.moods.setText("人气"+getItem(position+3).getRenqi());
         x.image().bind(holder.image,getItem(position+3).getRawcommentatorimage(),options);
 
+        holder.relative.setOnClickListener(this);
+        holder.relative.setTag(position+3);
+
         return convertView;
+    }
+
+    @Override
+    public void onClick(View v) {
+        Integer position = (Integer) v.getTag();
+        Log.e(TAG, "onClick: "+position );
+        if (listener!=null) {
+            listener.onItemClick(position);
+        }
+
+    }
+
+
+    public interface onItemClickListener{
+
+        void onItemClick(int position);
+
     }
 
     public class ViewHolder{
@@ -100,6 +129,8 @@ public class LiveRankAdapter extends BaseAdapter {
         TextView moods;
         TextView gamename;
         ImageView image;
+        RelativeLayout relative;
+
         public ViewHolder(View convertView){
 
             num= (TextView) convertView.findViewById(R.id.ranklist_game_fragment_lv_item_num);
@@ -107,6 +138,8 @@ public class LiveRankAdapter extends BaseAdapter {
             gamename = (TextView) convertView.findViewById(R.id.ranklist_game_fragment_lv_item_game_name);
             moods = (TextView) convertView.findViewById(R.id.ranklist_game_fragment_lv_item_moods);
             image = (ImageView) convertView.findViewById(R.id.ranklist_game_fragment_lv_item_image);
+            relative= (RelativeLayout) convertView.findViewById(R.id.ranklist_game_fragment_lv_item_relative);
+
 
         }
 

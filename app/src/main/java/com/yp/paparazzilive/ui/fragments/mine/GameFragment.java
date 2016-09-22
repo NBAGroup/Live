@@ -1,5 +1,6 @@
 package com.yp.paparazzilive.ui.fragments.mine;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -15,6 +16,7 @@ import com.yp.paparazzilive.adapters.mine.LiveRankAdapter;
 import com.yp.paparazzilive.model.mine.LiveRankList;
 import com.yp.paparazzilive.model.mine.RankModel;
 import com.yp.paparazzilive.ui.fragments.BaseFragment;
+import com.yp.paparazzilive.ui.thridactivity.AnchorActivity;
 import com.yp.paparazzilive.web.web;
 
 import org.xutils.common.Callback;
@@ -26,7 +28,7 @@ import org.xutils.x;
 /**
  * Created by yp on 2016/9/21.
  */
-public class GameFragment extends BaseFragment {
+public class GameFragment extends BaseFragment implements LiveRankAdapter.onItemClickListener, View.OnClickListener {
 
 
     private static final String TAG = GameFragment.class.getSimpleName();
@@ -72,8 +74,13 @@ public class GameFragment extends BaseFragment {
 
         mListView = ((ListView) layout.findViewById(R.id.ranklist_game_fragment_listview));
         adapter = new LiveRankAdapter(getActivity(),null);
+        adapter.setListener(this);
         mListView.setAdapter(adapter);
         mListView.setDivider(null);
+
+        mImageOne.setOnClickListener(this);
+        mImageTwo.setOnClickListener(this);
+        mImageThree.setOnClickListener(this);
 
     }
 
@@ -123,4 +130,29 @@ public class GameFragment extends BaseFragment {
 
     }
 
+    @Override
+    public void onItemClick(int position) {
+        Log.e(TAG, "onItemClick: "+position );
+        Intent intent = new Intent(getActivity(), AnchorActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()) {
+            case R.id.ranklist_game_fragment_image_one:
+
+                break;
+
+            case R.id.ranklist_game_fragment_image_two:
+
+                break;
+
+            case R.id.ranklist_game_fragment_image_three:
+
+                break;
+        }
+
+    }
 }

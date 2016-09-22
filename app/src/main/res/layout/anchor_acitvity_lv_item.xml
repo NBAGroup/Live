@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:id="@+id/anchor_activity_lv_item_play"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="120dp"
+        android:layout_height="80dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/anchor_activity_lv_item_image"
+                android:src="@mipmap/commentator_personal_bg"
+                android:layout_width="120dp"
+                android:scaleType="fitXY"
+                android:layout_height="80dp" />
+
+            <TextView
+                android:id="@+id/anchor_activity_lv_item_watch_time"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:textSize="12sp"
+                android:textColor="#ffff"
+                android:text="时间"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="90dp">
+
+        <TextView
+            android:id="@+id/anchor_activity_lv_item_title_top"
+            android:layout_gravity="center_vertical"
+            android:text="PDD直播"
+            android:layout_marginTop="12dp"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/anchor_activity_lv_item_title_bottom"
+            android:text="PDD直播"
+            android:layout_marginTop="12dp"
+            android:textSize="12sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:layout_marginTop="13dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/anchor_activity_lv_item_watch"
+                android:src="@mipmap/watch_icon"
+                android:layout_width="15dp"
+                android:layout_height="15dp" />
+
+            <TextView
+                android:id="@+id/anchor_activity_lv_item_watch_num"
+                android:layout_toRightOf="@+id/anchor_activity_lv_item_watch"
+                android:layout_marginLeft="5sp"
+                android:layout_centerVertical="true"
+                android:text="观看次数"
+                android:textSize="10sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/anchor_activity_lv_item_time"
+                android:layout_alignParentRight="true"
+                android:textSize="10sp"
+                android:layout_marginRight="10dp"
+                android:text="刷新时间"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
