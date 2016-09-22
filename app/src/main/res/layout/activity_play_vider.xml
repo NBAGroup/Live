@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fouractivity.PlayVideoActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <io.vov.vitamio.widget.VideoView
+            android:id="@+id/play_video"
+            android:layout_width="match_parent"
+            android:layout_height="280dp" />
+
+        <LinearLayout
+            android:id="@+id/play_video_controller"
+            android:background="#edeaea"
+            android:layout_gravity="bottom"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <CheckBox
+                android:id="@+id/play_video_controller_play"
+                android:button="@null"
+                android:background="@drawable/play_controller"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+            
+            <TextView
+                android:id="@+id/play_video_controller_current_time"
+                android:text="00:00"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content" />
+            
+            <SeekBar
+                android:id="@+id/play_video_controller_progress"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/play_video_controller_total_time"
+                android:text="00:00"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content" />
+            
+            <CheckBox
+                android:id="@+id/play_video_controller_full_screen"
+                android:background="@drawable/play_full_screen"
+                android:button="@null"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</RelativeLayout>

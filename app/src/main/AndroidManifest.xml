@@ -34,7 +34,9 @@
         <activity
             android:name=".ui.secondactivity.PlayActivity"
             android:configChanges="orientation|keyboardHidden|screenSize" />
-        <activity android:name=".ui.secondactivity.LoginActivity"></activity>
+        <activity android:name=".ui.thridactivity.AnchorActivity" />
+        <activity android:name=".ui.fouractivity.PlayVideoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
     </application>
 
 </manifest>
