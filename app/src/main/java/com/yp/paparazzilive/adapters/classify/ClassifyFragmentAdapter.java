@@ -51,6 +51,15 @@ public class ClassifyFragmentAdapter extends RecyclerView.Adapter<ClassifyFragme
         }
     }
 
+    public void updataRes(List<Column> data){
+        if (data!=null) {
+            this.data.clear();
+            this.data.addAll(data);
+            notifyDataSetChanged();
+        }
+    }
+
+
     public Column getItem(int position){
         return data.get(position);
     }

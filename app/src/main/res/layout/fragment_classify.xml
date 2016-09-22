@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -34,19 +35,28 @@
 
     </FrameLayout>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:background="#e9e8e6"
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/fragment_classify_recycler"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
+        <cn.appsdream.nestrefresh.normalstyle.NestRefreshLayout
+            android:id="@+id/recommend_nest_refresh"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            app:headerNestLayout="@layout/refresh_header">
 
-    </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/fragment_classify_recycler"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+
+        </cn.appsdream.nestrefresh.normalstyle.NestRefreshLayout>
+
+    </FrameLayout>
 
 </LinearLayout>

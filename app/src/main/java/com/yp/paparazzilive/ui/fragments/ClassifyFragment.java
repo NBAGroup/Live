@@ -26,15 +26,21 @@ import org.xutils.x;
 
 import java.util.List;
 
+import cn.appsdream.nestrefresh.base.AbsRefreshLayout;
+import cn.appsdream.nestrefresh.base.OnPullListener;
+import cn.appsdream.nestrefresh.normalstyle.NestRefreshLayout;
+
 /**
  * Created by yp on 2016/9/20.
  */
-public class ClassifyFragment extends BaseFragment implements View.OnClickListener,ClassifyFragmentAdapter.OnItemClickListener {
+public class ClassifyFragment extends BaseFragment implements View.OnClickListener,ClassifyFragmentAdapter.OnItemClickListener, OnPullListener {
 
     public static final String TAG=ClassifyFragment.class.getSimpleName();
     private RecyclerView mRecyclerView;
     private ClassifyFragmentAdapter adapter;
     private ImageView mSearch;
+    private NestRefreshLayout mNest;
+
 
     @Nullable
     @Override
@@ -53,6 +59,13 @@ public class ClassifyFragment extends BaseFragment implements View.OnClickListen
     }
 
     private void initView() {
+
+        mNest = (NestRefreshLayout) layout.findViewById(R.id.recommend_nest_refresh);
+        mNest.setPullLoadEnable(false);
+        mNest.setPullRefreshEnable(true);
+        mNest.setOnLoadingListener(this);
+
+
         mRecyclerView = ((RecyclerView) layout.findViewById(R.id.fragment_classify_recycler));
         mSearch=((ImageView) layout.findViewById(R.id.fragment_classify_image_search));
 
@@ -63,6 +76,8 @@ public class ClassifyFragment extends BaseFragment implements View.OnClickListen
         mRecyclerView.setAdapter(adapter);
 
         mSearch.setOnClickListener(this);
+
+
     }
 
     private void setupView() {
@@ -74,7 +89,8 @@ public class ClassifyFragment extends BaseFragment implements View.OnClickListen
             public void onSuccess(ColumnList result) {
                 List<Column> data_list = result.getData_list();
                 Log.e(TAG, "onSuccess: "+data_list.get(0).getName());
-                adapter.addRes(data_list);
+                adapter.updataRes(data_list);
+                mNest.onLoadFinished();
             }
 
             @Override
@@ -114,5 +130,15 @@ public class ClassifyFragment extends BaseFragment implements View.OnClickListen
         event.setName(adapter.getItem(position).getName());
 
         EventBus.getDefault().postSticky(event);
+    }
+
+    @Override
+    public void onRefresh(AbsRefreshLayout listLoader) {
+        setupView();
+    }
+
+    @Override
+    public void onLoading(AbsRefreshLayout listLoader) {
+
     }
 }

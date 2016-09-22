@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -18,6 +19,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -36,10 +38,12 @@ import com.yp.paparazzilive.utils.VolumController;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.widget.VideoView;
 
-public class PlayActivity extends AppCompatActivity implements io.vov.vitamio.MediaPlayer.OnErrorListener, View.OnTouchListener, GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener, View.OnClickListener, CompoundButton.OnCheckedChangeListener {
+public class PlayActivity extends AppCompatActivity implements MediaPlayer.OnErrorListener, GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener, View.OnClickListener, CompoundButton.OnCheckedChangeListener, View.OnTouchListener {
 
+    private static final String TAG = PlayActivity.class.getSimpleName();
     private VideoView mVideoview;
     private int oldHeight;
     private int oldWidth;
@@ -64,6 +68,7 @@ public class PlayActivity extends AppCompatActivity implements io.vov.vitamio.Me
     private TextView mPlayTime;
     private TextView mPlayName;
     private LinearLayout playInfo;
+    private EditText mPinglun;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +95,7 @@ public class PlayActivity extends AppCompatActivity implements io.vov.vitamio.Me
         mPlayOrPause = (CheckBox) findViewById(R.id.play_cb_pause);
         mPlayTime = (TextView) findViewById(R.id.paly_time);
         mPlayName = (TextView) findViewById(R.id.paly_name);
+        mPinglun = (EditText) findViewById(R.id.play_edittext);
 
         mBack.setOnClickListener(this);
         mPlaymore.setOnClickListener(this);
@@ -108,7 +114,7 @@ public class PlayActivity extends AppCompatActivity implements io.vov.vitamio.Me
         mTabName.setupWithViewPager(mViewpager);
         playByStatus();
 
-        mVideoview.setOnTouchListener(this);
+       mVideoview.setOnTouchListener(this);
         mGestureDector = new GestureDetector(this, this);
         mGestureDector.setOnDoubleTapListener(this);
 
@@ -139,7 +145,7 @@ public class PlayActivity extends AppCompatActivity implements io.vov.vitamio.Me
             public void onPrepared(io.vov.vitamio.MediaPlayer mediaPlayer) {
 
                 mVideoview.start();
-                mediaPlayer.setPlaybackSpeed(1.0f);
+//                mediaPlayer.setPlaybackSpeed(1.0f);
                 imageLoad.clearAnimation();
                 imageLoad.setVisibility(View.GONE);
             }
@@ -166,7 +172,22 @@ public class PlayActivity extends AppCompatActivity implements io.vov.vitamio.Me
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-
+            case R.id.play_detail_back://返回键
+                if(isLandscape){
+                    changeSmallScreen();//变为竖屏
+                }else {
+                    finish();
+                }
+                break;
+            case R.id.play_image_more:
+                ToastUtil.makeText("哈哈哈",this);
+                Intent intent1 = new Intent(this, LoginActivity.class);
+                startActivity(intent1);
+                break;
+            case R.id.play_edittext:
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+                break;
         }
     }
 
@@ -181,6 +202,14 @@ public class PlayActivity extends AppCompatActivity implements io.vov.vitamio.Me
                     //变为竖屏
                     changeSmallScreen();
                 }
+                break;
+            case R.id.play_cb_pause:
+                if(mPlayOrPause.isChecked()){
+                    mVideoview.pause();
+                }else {
+                    mVideoview.start();
+                }
+                break;
         }
     }
 
@@ -220,16 +249,27 @@ public class PlayActivity extends AppCompatActivity implements io.vov.vitamio.Me
 
     @Override
     public boolean onSingleTapConfirmed(MotionEvent e) {
+        Log.e(TAG, "onSingleTapConfirmed: " );
         return false;
     }
 
     @Override
     public boolean onDoubleTap(MotionEvent e) {
+        Log.e(TAG, "onDoubleTap: "+e.getAction());
+
+        if(isLandscape&&mVideoview.isPlaying()){
+            mVideoview.pause();
+            mPlayOrPause.setChecked(false);
+        }else {
+            mVideoview.start();
+            mPlayOrPause.setChecked(true);
+        }
         return false;
     }
 
     @Override
     public boolean onDoubleTapEvent(MotionEvent e) {
+        Log.e(TAG, "onDoubleTapEvent: "+e.getAction() );
         return false;
     }
 
@@ -272,6 +312,12 @@ public class PlayActivity extends AppCompatActivity implements io.vov.vitamio.Me
         if (!isShowBig) {
             //隐藏状态栏
             mVideoview.setSystemUiVisibility(View.INVISIBLE);
+            mFullscreen.setVisibility(View.GONE);
+            mBack.setVisibility(View.GONE);
+            mPlayOrPause.setVisibility(View.GONE);
+            mPlayName.setVisibility(View.GONE);
+            mPlayTime.setVisibility(View.GONE);
+            mPlaymore.setVisibility(View.GONE);
         } else {
             //显示状态栏
             mVideoview.setSystemUiVisibility(View.VISIBLE);
@@ -294,7 +340,7 @@ public class PlayActivity extends AppCompatActivity implements io.vov.vitamio.Me
 
     @Override
     public boolean onSingleTapUp(MotionEvent e) {
-
+        Log.e(TAG, "onSingleTapUp: "+e.getAction() );
         return false;
     }
 

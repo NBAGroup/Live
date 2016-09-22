@@ -1,6 +1,7 @@
 package com.yp.paparazzilive.ui.fragments;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -31,6 +32,10 @@ import org.xutils.x;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.appsdream.nestrefresh.base.AbsRefreshLayout;
+import cn.appsdream.nestrefresh.base.OnPullListener;
+import cn.appsdream.nestrefresh.normalstyle.NestRefreshLayout;
+
 /**
  * Created by yp on 2016/9/20.
  */
@@ -56,6 +61,11 @@ public class HomePagerFragmetn extends BaseFragment implements AdapterView.OnIte
     private MovieBigAdapter movieBigAdapter;
 
     private List<MovieBig.DataBean> data;
+    private AnimationDrawable mAnimation;
+    private ImageView mLoading;
+    private View mLoadLayout;
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -68,7 +78,10 @@ public class HomePagerFragmetn extends BaseFragment implements AdapterView.OnIte
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initView();
+        setUpView();
     }
+
+
 
     private void initView() {
 
@@ -89,52 +102,64 @@ public class HomePagerFragmetn extends BaseFragment implements AdapterView.OnIte
 
         mGridView = (HomePagerGridView) layout.findViewById(R.id.homepager_gridview);
 
-        movieBigAdapter = new MovieBigAdapter(getContext(),null,R.layout.homepagerlive_item);
+        movieBigAdapter = new MovieBigAdapter(getContext(), null, R.layout.homepagerlive_item);
         mGridView.setAdapter(movieBigAdapter);
         mGridView.setOnItemClickListener(this);
 
-
-        RequestParams params = new RequestParams("http://live.bilibili.com/mobile/rooms?_device=android&_hwid=02f07a17baea3af1&appkey=1d8b6e7d45233436&area_id=1&build=426003&mobi_app=android&page=2&platform=android&sort=hottest&sign=416260a389ba4a44f2da760adf401f56");
-
-        x.http().get(params, new Callback.CommonCallback<String>() {
-            @Override
-            public void onSuccess(String result) {
-                Log.e(TAG, "onSuccess: "+result );
-                Gson gson=new Gson();
-                Log.e(TAG, "onSuccessttt: " );
-                MovieBig bigLive = gson.fromJson(result, MovieBig.class);
-                Log.e(TAG, "onSuccess: uuu" );
-                data = bigLive.getData();
-                Log.e(TAG, "onSuccess: "+data.get(0).getTitle());
-                movieBigAdapter.updateRes(data);
-            }
-
-            @Override
-            public void onError(Throwable ex, boolean isOnCallback) {
-                Log.e(TAG, "onError: " );
-            }
-
-            @Override
-            public void onCancelled(CancelledException cex) {
-                Log.e(TAG, "onCancelled: " );
-            }
-
-            @Override
-            public void onFinished() {
-                Log.e(TAG, "onFinished: " );
-            }
-        });
+        mLoadLayout = layout.findViewById(R.id.loading_data_layout);
+        mLoading = (ImageView) layout.findViewById(R.id.image_loading_data);
+        mLoading.setBackgroundResource(R.drawable.loading);
+        // 将设置的逐帧动画的背景资源获取出来，并且添加一个转型
+        mAnimation = ((AnimationDrawable) mLoading.getBackground());
+        mAnimation.start();
     }
+        private void setUpView() {
 
-    public List<BigModel.RecZhuboBean.DataListBean> getData() {
+            RequestParams params = new RequestParams("http://live.bilibili.com/mobile/rooms?_device=android&_hwid=02f07a17baea3af1&appkey=1d8b6e7d45233436&area_id=1&build=426003&mobi_app=android&page=2&platform=android&sort=hottest&sign=416260a389ba4a44f2da760adf401f56");
 
-        List<BigModel.RecZhuboBean.DataListBean> data=new ArrayList<>();
+            x.http().get(params, new Callback.CommonCallback<String>() {
+                @Override
+                public void onSuccess(String result) {
+                    Log.e(TAG, "onSuccess: "+result );
+                    Gson gson=new Gson();
+                    Log.e(TAG, "onSuccessttt: " );
+                    MovieBig bigLive = gson.fromJson(result, MovieBig.class);
+                    Log.e(TAG, "onSuccess: uuu" );
+                    data = bigLive.getData();
+                    Log.e(TAG, "onSuccess: "+data.get(0).getTitle());
+                    movieBigAdapter.updateRes(data);
+
+                    //图片加载完成隐藏loading
+                    if(mLoadLayout.getVisibility()==View.VISIBLE){
+                        mAnimation.stop();
+                        mLoadLayout.setVisibility(View.GONE);
+
+                    }
+                }
+
+                @Override
+                public void onError(Throwable ex, boolean isOnCallback) {
+                    Log.e(TAG, "onError: " );
+                }
+
+                @Override
+                public void onCancelled(CancelledException cex) {
+                    Log.e(TAG, "onCancelled: " );
+                }
+
+                @Override
+                public void onFinished() {
+                    Log.e(TAG, "onFinished: " );
+                }
+            });
+
+        }
+
+
+    public List<MovieBig.DataBean> getData() {
+        List<MovieBig.DataBean> data=new ArrayList<>();
         for (int i = 0; i < 30; i++) {
-            BigModel.RecZhuboBean.DataListBean live1 = new BigModel.RecZhuboBean.DataListBean();
-            live1.setName("我的直播"+i);
-            live1.setViewers(99999999);
-            live1.setTitle("英雄联盟"+i);
-            live1.setCommentator("搞起啊"+i);
+            MovieBig.DataBean live1 = new MovieBig.DataBean();
             data.add(live1);
         }
         return data;
@@ -148,4 +173,5 @@ public class HomePagerFragmetn extends BaseFragment implements AdapterView.OnIte
         intent.putExtra("NAME",data.get(position).getTitle());
         startActivity(intent);
     }
+
 }
